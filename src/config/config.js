@@ -15,7 +15,7 @@ module.exports = {
 	},
 	qpx : {
 		endpoint : ' https://www.googleapis.com/qpxExpress/v1/trips',
-		key : 'AIzaSyBvfzNSodxiEVAe8tco4LXjeWT-hbLnjNA',
+		key : 'YOUR_API_KEY_HERE',
 		count: 20,
 		search: '/search'
 	}
