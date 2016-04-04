@@ -5,32 +5,24 @@
     <title>Travel Comparison Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    
-    <link href="dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link href="bootstrap.css" rel="stylesheet" />
+   
     
     <link rel="stylesheet" href="//code.jquery.com/jquery-1.10.2.js">
     
     <script src="dist/jquery/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/resources/demos/style.css">
+
     <script>
       $(function() {
         $( "#datepicker" ).datepicker();
       });
     </script>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    
 </head>
-<body ng-app="travel_app">
+<body>
     
    <!--Navbar--> 
     
-   <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+   <nav id="myNavbar" class="navbar navbar-default" role="navigation">
         
         <div class="container">
             <div class="navbar-header">
@@ -46,8 +38,9 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="" target="_blank">Home</a></li>
-                    <li><a href="" target="_blank">Page 2</a></li>
-                    <li><a href="" target="_blank">Page 3</a></li>
+                    <li><a href="" target="_blank">My Trips</a></li>
+                    <li><a href="" target="_blank">Help/FAQ</a></li>
+                    <li><a href="" target="_blank">Settings</a></li>
                 </ul>
             </div>
         </div>
@@ -55,23 +48,19 @@
     
     <div class="container">
 
-        <!--div><br><br><br></div-->
-        <div class="jumbotron"><h2>Travel Comparison</h2></div>
-            
-            <!-- Form -->
+        <div><br></div>
         
-            <form role="form" class="form-horizontal" ng-submit="submitMyForm()" >
 
-                
+            <form role="form" class="form-horizontal" onsubmit="handleForm(this)">
+
+                <!-- Form -->
                 <legend>Trip</legend>
 
                 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="frominput">From</label>
                   <div class="col-md-4">
-                    <input id="frominput" name="from" type="text" placeholder="From" class="form-control input-md" ng-model="fields.from">
-                      
-                      
+                    <input id="frominput" name="from" type="search" placeholder="From" class="form-control input-md">
 
                   </div>
                 </div>
@@ -81,7 +70,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="toinput">To</label>
                   <div class="col-md-4">
-                    <input id="toinput" name="to" type="text" placeholder="To" class="form-control input-md" ng-model="fields.to">
+                    <input id="toinput" name="to" type="search" placeholder="To" class="form-control input-md">
 
                   </div>
                 </div>
@@ -89,7 +78,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="dateinput">Date</label>
                   <div class="col-md-4">
-                    <input id="dateinput" name="date" type="date" id="datepicker" placeholder="Date" class="form-control input-md" ng-model="fields.date">
+                    <input id="dateinput" name="date" type="date" id="datepicker" placeholder="Date" class="form-control input-md">
 
                   </div>
                 </div>
@@ -97,7 +86,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="adultsinput">Adults</label>
                   <div class="col-md-4">
-                    <input id="adultsinput" name="adults" type="number" id="adultsinput" placeholder="Adults" class="form-control input-md" min="0" max="10" ng-model="fields.adults">
+                    <input id="adultsinput" name="adults" type="number" id="adultsinput" placeholder="Adults" class="form-control input-md" min="0" max="10">
 
                   </div>
                 </div>
@@ -109,7 +98,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="makeinput">Make</label>
                   <div class="col-md-4">
-                    <input id="makeinput" name="make" type="search" placeholder="Make" class="form-control input-md" ng-model="fields.make">
+                    <input id="makeinput" name="make" type="search" placeholder="Make" class="form-control input-md">
                   </div>
                 </div>
                 
@@ -118,7 +107,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="modelinput">Model</label>
                   <div class="col-md-4">
-                    <input id="modelinput" name="model" type="search" placeholder="Model" class="form-control input-md" ng-model="fields.model">
+                    <input id="modelinput" name="model" type="search" placeholder="Model" class="form-control input-md">
                   </div>
                 </div>
                 
@@ -127,41 +116,32 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="yearinput">Year</label>
                     <div class="col-md-4">
-                    <input id="yearinput" name="year" type="number" placeholder="Year" class="form-control input-md" min="1950" max="2016" ng-model="fields.year">
+                    <input id="yearinput" name="year" type="number" placeholder="Year" class="form-control input-md" min="1950" max="2016">
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="searchinput"></label>
                     <div class="col-md-4">
-                        <button ng-disabled="myForm.$invalid">Submit</button> 
+                        <input type="submit" value="Submit" placeholder="placeholder" class="form-control input-md">  
                     </div>
                 </div>
 
             </form>
             
-            <script>
-            
-                function myController($scope){
-                    $scope.submitMyForm=function(){
-                        /* while compiling form , angular created this object*/
-                        var data=$scope.fields;  
-                        /* post to server*/
-                        $http.post(url, data);        
-                    }
-
-                }
-                
         
-            </script>
         
             
             
         </div>
+    <script>
+        function handleForm(arr) {
+            directionsLink = "http://maps.google.com/maps?saddr=" + arr['from'].value + "&daddr=" + arr['to'].value;
+            window.open(directionsLink);
+        }
+    </script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    
-    </body>
 </html>
