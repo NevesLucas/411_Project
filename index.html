@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Travel Comparison Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    
+    <link href="dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    
+    <link rel="stylesheet" href="//code.jquery.com/jquery-1.10.2.js">
+    
+    <script src="dist/jquery/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script>
+      $(function() {
+        $( "#datepicker" ).datepicker();
+      });
+    </script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    
+</head>
+<body ng-app="travel_app">
+    
+   <!--Navbar--> 
+    
+   <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+        
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Travel Comparison</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="" target="_blank">Home</a></li>
+                    <li><a href="" target="_blank">Page 2</a></li>
+                    <li><a href="" target="_blank">Page 3</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+
+        <!--div><br><br><br></div-->
+        <div class="jumbotron"><h2>Travel Comparison</h2></div>
+            
+            <!-- Form -->
+        
+            <form role="form" class="form-horizontal" ng-submit="submitMyForm()" >
+
+                
+                <legend>Trip</legend>
+
+                
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="frominput">From</label>
+                  <div class="col-md-4">
+                    <input id="frominput" name="from" type="text" placeholder="From" class="form-control input-md" ng-model="fields.from">
+                      
+                      
+
+                  </div>
+                </div>
+        
+
+
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="toinput">To</label>
+                  <div class="col-md-4">
+                    <input id="toinput" name="to" type="text" placeholder="To" class="form-control input-md" ng-model="fields.to">
+
+                  </div>
+                </div>
+        
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="dateinput">Date</label>
+                  <div class="col-md-4">
+                    <input id="dateinput" name="date" type="date" id="datepicker" placeholder="Date" class="form-control input-md" ng-model="fields.date">
+
+                  </div>
+                </div>
+                    
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="adultsinput">Adults</label>
+                  <div class="col-md-4">
+                    <input id="adultsinput" name="adults" type="number" id="adultsinput" placeholder="Adults" class="form-control input-md" min="0" max="10" ng-model="fields.adults">
+
+                  </div>
+                </div>
+                    
+                
+                
+                <legend>Car</legend>
+                
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="makeinput">Make</label>
+                  <div class="col-md-4">
+                    <input id="makeinput" name="make" type="search" placeholder="Make" class="form-control input-md" ng-model="fields.make">
+                  </div>
+                </div>
+                
+        
+                
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="modelinput">Model</label>
+                  <div class="col-md-4">
+                    <input id="modelinput" name="model" type="search" placeholder="Model" class="form-control input-md" ng-model="fields.model">
+                  </div>
+                </div>
+                
+         
+                
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="yearinput">Year</label>
+                    <div class="col-md-4">
+                    <input id="yearinput" name="year" type="number" placeholder="Year" class="form-control input-md" min="1950" max="2016" ng-model="fields.year">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="searchinput"></label>
+                    <div class="col-md-4">
+                        <button ng-disabled="myForm.$invalid">Submit</button> 
+                    </div>
+                </div>
+
+            </form>
+            
+            <script>
+            
+                function myController($scope){
+                    $scope.submitMyForm=function(){
+                        /* while compiling form , angular created this object*/
+                        var data=$scope.fields;  
+                        /* post to server*/
+                        $http.post(url, data);        
+                    }
+
+                }
+                
+        
+            </script>
+        
+            
+            
+        </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    
+    </body>
+</html>
