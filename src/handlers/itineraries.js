@@ -9,8 +9,21 @@ exports.getItineraries = function(request, reply) {
 	var requestData = _buildRequestData(request);
 	console.log("Query Data: "+requestData);
 
-    //reply(tripData);
-	req.post(
+    reply(tripData);
+    try {
+        module.exports.doInsert = function () {
+            //use the collection object exported by mongo.js
+            mongo.flights.insert(tripData, { safe: true }, function (err, objects) {
+                if (err)
+                    console.warn(err.message);
+            });
+        };
+    }
+    catch (e) {
+        console.log(e);
+    }
+
+/*    req.post(
              config.qpx.endpoint+config.qpx.search+'?key='+config.qpx.key,
              {headers: {'content-type': 'application/json'},
              body: JSON.stringify(requestData) },
@@ -21,6 +34,7 @@ exports.getItineraries = function(request, reply) {
 	            reply(Boom.badImplementation(err)); // 500 error
 	        }
 	});
+ */
 };
 
 
