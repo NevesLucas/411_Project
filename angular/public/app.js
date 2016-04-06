@@ -25,7 +25,7 @@ angular.module('tripApp', [])
 
         })
         .error(function (data, status, headers, config) {
-            $scope.errorDetail = data + status + header + config;
+            $scope.errorDetail = data + status + headers + config;
         });
     };
 
