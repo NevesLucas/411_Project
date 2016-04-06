@@ -2,7 +2,6 @@ var Hapi = require('hapi'),
 	config = require('./src/config/config'),
     routes = require('./src/config/routes');
 
-
 var server = new Hapi.Server();
 server.connection({
     host: config.server.host,

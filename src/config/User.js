@@ -8,14 +8,17 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     name: String, username: { type: String, required: true, unique: true },
     password: {
-        type: String, 
-        required: true},
+    type: String, 
+    required: true},
     admin: Boolean, 
     location: string, 
     Car: String, 
     efficiency: Number,
     created_at: Date, 
-    updated_at: Date
+    updated_at: Date,
+    nested: {
+    recents: {type:string,lowercase: true}
+    }
 });
 // on every save, add the date
 userSchema.pre('save', function (next) {
