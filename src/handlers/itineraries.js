@@ -2,25 +2,45 @@ var config = require('../config/config'),
     req = require('request'),
     Boom = require('boom');
 var tripData = require('./../data/tripSearchData.json');
-     
+var mongo = require('../config/mongo.js');
 /** get all Itineraries from QPX Express API for the search request */
 exports.getItineraries = function(request, reply) {
     console.log(request.payload);
 	var requestData = _buildRequestData(request);
 	console.log("Query Data: "+requestData);
 
-    //reply(tripData);
-	req.post(
+    reply(tripData);
+    try {
+
+        
+        module.exports.doInsert = function () {
+            //use the collection object exported by mongo.js
+            mongo.flights.insert(tripData, { safe: true }, function (err, objects) {
+                if (err)
+                    console.warn(err.message);
+            });
+        };
+    }
+    catch (e) {
+        console.log(e);
+    }
+   
+     /*
+	req.post(d
              config.qpx.endpoint+config.qpx.search+'?key='+config.qpx.key,
              {headers: {'content-type': 'application/json'},
              body: JSON.stringify(requestData) },
         function(err, res, data) {
-	       	if (!err) {
-	            reply(data);
-	        } else {
+            if (!err) {
+                
+                reply(data);
+
+            }
+            else {
 	            reply(Boom.badImplementation(err)); // 500 error
 	        }
-	});
+     
+	}); */
 };
 
 

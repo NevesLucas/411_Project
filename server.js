@@ -15,8 +15,13 @@ server.connection({
     }
 });
 
-db = require('./src/config/db')(server),
-db.startup();
+var db = require('./src/config/mongo.js');  //initialize mongodb
+
+db.init(function (error) {
+    if (error)
+        throw error;
+   
+});
 
 routes.init(server);
 
