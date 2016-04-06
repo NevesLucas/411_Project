@@ -2,8 +2,6 @@
 var mongoose = require('mongoose');
 var config = require('./config');
 
-//We need to work with "MongoClient" interface in order to connect to a mongodb server.
-mongoose.connect('mongodb://localhost/flights'); //going to have to change this name
 var Schema = mongoose.Schema;
 
 //define users
