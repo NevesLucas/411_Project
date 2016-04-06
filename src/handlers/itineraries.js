@@ -10,20 +10,8 @@ exports.getItineraries = function(request, reply) {
 	console.log("Query Data: "+requestData);
 
     reply(tripData);
-    try {
+    //going to need to sift through data before storing, need to decide what needs to be stored
 
-        
-        module.exports.doInsert = function () {
-            //use the collection object exported by mongo.js
-            mongo.flights.insert(tripData, { safe: true }, function (err, objects) {
-                if (err)
-                    console.warn(err.message);
-            });
-        };
-    }
-    catch (e) {
-        console.log(e);
-    }
    
      /*
 	req.post(d
