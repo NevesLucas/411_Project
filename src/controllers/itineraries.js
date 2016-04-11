@@ -1,4 +1,4 @@
-var itineraries = require('../handlers/itineraries');
+        var itineraries = require('../handlers/itineraries');
      
 /** @module Controller for Itineraries */
 

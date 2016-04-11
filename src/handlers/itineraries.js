@@ -10,17 +10,18 @@ exports.getItineraries = function(request, reply) {
 	console.log("Query Data: "+requestData);
 
     reply(tripData);
+
     //going to need to sift through data before storing, need to decide what needs to be stored
 
    
      /*
-	req.post(d
+	req.post(
              config.qpx.endpoint+config.qpx.search+'?key='+config.qpx.key,
              {headers: {'content-type': 'application/json'},
              body: JSON.stringify(requestData) },
         function(err, res, data) {
             if (!err) {
-                
+             
                 reply(data);
 
             }
