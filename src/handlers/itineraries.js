@@ -1,6 +1,9 @@
 var config = require('../config/config'),
-    req = require('request'),
+    req = require('request'),  
     Boom = require('boom');
+var mongoose = require('mongoose');
+var flights = require('./../models/flights');
+var Flights = mongoose.model('flights');
 var tripData = require('./../data/tripSearchData.json');
 var mongo = require('../config/mongo.js');
 /** get all Itineraries from QPX Express API for the search request */
@@ -8,8 +11,17 @@ exports.getItineraries = function(request, reply) {
     console.log(request.payload);
 	var requestData = _buildRequestData(request);
 	console.log("Query Data: "+requestData);
+    
+    var newFLights = new Flights(tripData);
 
-    reply(tripData);
+    newFLights.save(function (err){ //adding to db, but needs to be done periodically instead of after every call
+        if (err) return handleError(err)
+        })
+
+    Flights.find(requestData, function (err, flightdata) {
+        reply(flightdata);//refactor, calling it airport isnt a good idea, its the iteneraries after all
+    });
+
 
     //going to need to sift through data before storing, need to decide what needs to be stored
 
