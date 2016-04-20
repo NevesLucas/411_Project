@@ -19,7 +19,7 @@ exports.getItineraries = function(request, reply) {
         })
 
     Flights.find(requestData, function (err, flightdata) {
-        reply(flightdata);//refactor, calling it airport isnt a good idea, its the iteneraries after all
+        reply(flightdata);
     });
 
 
