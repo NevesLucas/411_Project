@@ -1,0 +1,22 @@
+﻿<navigation></navigation>
+
+<h4> Search Trip </h4>
+
+<div class="container">
+
+    <div ng-app="tripApp" ng-controller="tripController">
+        <input type="text" ng-model="farePrefrence" name="farePrefrence" placeholder="farePrefrence"> <br>
+        <input type="text" ng-model="fromAirport" name="fromAirport" placeholder="fromAirport"> <br>
+        <input type="text" ng-model="fromDate" name="fromDate" placeholder="fromDate"> <br>
+        <input type="text" ng-model="passengers" name="passengers" placeholder="passengers"> <br>
+        <input type="text" ng-model="toAirport" name="toAirport" placeholder="toAirport"> <br>
+        <input type="text" ng-model="toDate" name="toDate" placeholder="toDate"> <br>
+        <input type="text" ng-model="travelType" name="travelType" placeholder="travelType"> <br>
+        <button ng-click="SendData()">Submit</button>
+        <hr />
+
+        {{tripResult}}
+
+    </div>
+
+</div>
