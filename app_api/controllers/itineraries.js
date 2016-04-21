@@ -1,9 +1,7 @@
-        var itineraries = require('../handlers/itineraries');
-     
-/** @module Controller for Itineraries */
+var itineraries = require('../handlers/itineraries');
 
-/** get all Itineraries from QPX Express API for the search request */
-exports.getItineraries = function(request, reply) {
+
+module.exports.getItineraries = function (request, reply) {
 
     return itineraries.getItineraries(request, reply);
 };

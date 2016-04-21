@@ -1,29 +1,14 @@
 /**
  * Dependencies.
  */
-var ItinerariesController = require('../controllers/itineraries');
 
-module.exports =  exports = function(server) {
-    console.log('Loading Itineraries routes');
-    exports.getItineraries(server);
-};
+var express = require('express');
+var router = express.Router();
 
+var ctrlItin = require('../controllers/itineraries');
 
 
-/**
- * GET /Itineraries/{searchTxt}
- * Gets the Itineraries based upon the {searchTxt} parameter.
- *
- * @param server
- */
-exports.getItineraries = function(server) {
+// itineraries
+router.post('/search',ctrlItin.getItineraries);
 
-    server.route({
-        method: 'POST',
-        path: '/api/itineraries',
-        config: {
-            handler: ItinerariesController.getItineraries
-        }
-    });
-};
-
+module.exports = router;
