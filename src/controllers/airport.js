@@ -1,5 +1,6 @@
 var Boom = require('boom'),
     Airport = require('../models/airport').airport; 
+
 /** @module Controller for Airport */
 
 /** get all airport details for the searchTxt */
