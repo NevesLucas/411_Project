@@ -1,0 +1,2 @@
+F:\Users\Lucas\SkyDrive\411\411_Project\NodejsConsoleApp1\NodejsConsoleApp1\obj\Debug\NodejsConsoleApp1.njsprojResolveAssemblyReference.cache
+F:\Users\Lucas\SkyDrive\411\411_Project\NodejsConsoleApp1\NodejsConsoleApp1\bin\Microsoft.NodejsTools.WebRole.dll
