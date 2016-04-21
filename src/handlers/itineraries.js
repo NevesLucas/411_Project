@@ -12,6 +12,8 @@ exports.getItineraries = function(request, reply) {
 	var requestData = _buildRequestData(request);
 	console.log("Query Data: "+requestData);
     
+    reply(tripData);  
+    /*
     var newFLights = new Flights(tripData);
 
     newFLights.save(function (err){ //adding to db, but needs to be done periodically instead of after every call
@@ -22,7 +24,7 @@ exports.getItineraries = function(request, reply) {
         reply(flightdata);
     });
 
-
+    */
     //going to need to sift through data before storing, need to decide what needs to be stored
 
    
@@ -101,4 +103,3 @@ exports.getItineraries = function(request, reply) {
 
  	return cabinPrefrence;
  }
-
