@@ -16,4 +16,9 @@ router.get('/profile', auth, ctrlProfile.profileRead);
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
+var ctrlItineraries = require('../controllers/itineraries');
+
+// qpx express
+router.post('/itineraries', ctrlItineraries.getItineraries);
+
 module.exports = router;
