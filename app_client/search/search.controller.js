@@ -3,7 +3,6 @@
     angular
     .module('meanApp')
     .controller('searchCtrl', searchCtrl);
-<<<<<<< HEAD
     
     searchCtrl.$inject = ['$scope', '$http', 'flightData', '$location', '$filter']
     function searchCtrl($scope, $http, flightData, $location, $filter) {
@@ -76,7 +75,8 @@ _buildRequestData = function(request) {
             preferredCabin: preferredCabin
         };
         slices.push(returnSlice);
-=======
+    }
+
     searchCtrl.$inject = ['$location', 'meanData'];
     function searchCtrl($location, meanData) {
         console.log('searchCtrl is running');
@@ -92,7 +92,6 @@ _buildRequestData = function(request) {
                 console.log(e);
             });
         
->>>>>>> beab7c0b082095099e8d9306106692b183f6b951
     }
     
     var requestData = {
