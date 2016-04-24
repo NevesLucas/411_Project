@@ -8,7 +8,7 @@ var auth = jwt({
 
 var ctrlProfile = require('../controllers/profile');
 var ctrlAuth = require('../controllers/authentication');
-
+var ctrlSearch = require('../controllers/itineraries');
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
 
@@ -19,6 +19,6 @@ router.post('/login', ctrlAuth.login);
 var ctrlItineraries = require('../controllers/itineraries');
 
 // qpx express
-router.post('/itineraries', ctrlItineraries.getItineraries);
+router.post('/search', ctrlSearch.getItineraries);
 
 module.exports = router;
