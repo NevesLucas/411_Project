@@ -23,7 +23,11 @@
         templateUrl: '/profile/profile.view.html',
         controller: 'profileCtrl',
         controllerAs: 'vm'
-      })
+      }).when('/search', {
+            templateUrl: '/search/search.view.html',
+            controller: 'searchCtrl',
+            controllerAs: 'vm'
+        })
       .otherwise({redirectTo: '/'});
 
     // use the HTML5 History API
