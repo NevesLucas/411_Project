@@ -1,4 +1,54 @@
-<navigation></navigation>
+<html >
+
+<head>
+    
+    
+    <meta charset="utf-8">
+    <title>Travel Comparison Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="../../../bootstrap.css" rel="stylesheet" />
+    <link href="../signin.css" rel="stylesheet" />
+   
+    
+    <link rel="stylesheet" href="//code.jquery.com/jquery-1.10.2.js">
+    
+    <script src="dist/jquery/jquery-ui.js"></script>
+
+    <script>
+      $(function() {
+        $( "#datepicker" ).datepicker();
+      });
+    </script>
+
+</head>
+    
+<body>
+<nav id="myNavbar" class="navbar navbar-default" role="navigation">
+        
+        <div class="container" >
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Travel Comparison</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="../search/search.view.html" target="_blank">Search</a></li>
+                    <li ng-hide="navvm.isLoggedIn"><a href="login">Sign in</a></li>
+        <li ng-show="navvm.isLoggedIn"><a href="../../profile/profile.view.html">{{ navvm.currentUser.name }}</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
 
 <div class="container">
 
@@ -6,16 +56,17 @@
     
     <div class="col-md-6">
 
-      <h1 class="form-signin-heading">Sign in</h1>
-      <p class="lead">Not a member? Please <a href="register">register</a> instead.</p>
+      
   
-      <form ng-submit="vm.onSubmit()">
+      <form ng-submit="vm.onSubmit()" class="form-signin">
+          <h1 class="form-signin-heading">Sign in</h1>
+      <p class="lead">Not a member? Please <a href="../register/register.view.html">register</a> instead.</p>
         <div class="form-group">
-          <label for="email">Email address</label>
+          <label class="sr-only"for="email">Email address</label>
           <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="vm.credentials.email">
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label class="sr-only"for="password">Password</label>
           <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
         </div>
         <button type="submit" class="btn btn-default">Sign in!</button>
@@ -25,3 +76,9 @@
   </div>
 
 </div>
+
+    
+    
+</body>
+
+</html>

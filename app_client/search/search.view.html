@@ -1,22 +1,111 @@
-﻿<navigation></navigation>
+<html>
+    
+<head>
+    
+    
+    <meta charset="utf-8">
+    <title>Travel Comparison Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="../../bootstrap.css" rel="stylesheet" />
+    
+   
+    
+    <link rel="stylesheet" href="//code.jquery.com/jquery-1.10.2.js">
+    
+    <script src="dist/jquery/jquery-ui.js"></script>
 
-<h4> Search Trip </h4>
+    <script>
+      $(function() {
+        $( "#datepicker" ).datepicker();
+      });
+    </script>
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <nav id="myNavbar" class="navbar navbar-default" role="navigation">
+        
+        <div class="container" >
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Travel Comparison</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="../search/search.view.html" target="_blank">Search</a></li>
+                    <li ng-hide="navvm.isLoggedIn"><a href="../auth/login/login.view.html">Sign in</a></li>
+                    <li ng-show="navvm.isLoggedIn"><a href="../profile/profile.view.html">{{ navvm.currentUser.name }}</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>    
+    
+    
+
 
 <div class="container">
 
-    <div ng-app="tripApp" ng-controller="tripController">
-        <input type="text" ng-model="farePrefrence" name="farePrefrence" placeholder="farePrefrence"> <br>
-        <input type="text" ng-model="fromAirport" name="fromAirport" placeholder="fromAirport"> <br>
-        <input type="text" ng-model="fromDate" name="fromDate" placeholder="fromDate"> <br>
-        <input type="text" ng-model="passengers" name="passengers" placeholder="passengers"> <br>
-        <input type="text" ng-model="toAirport" name="toAirport" placeholder="toAirport"> <br>
-        <input type="text" ng-model="toDate" name="toDate" placeholder="toDate"> <br>
-        <input type="text" ng-model="travelType" name="travelType" placeholder="travelType"> <br>
-        <button ng-click="SendData()">Submit</button>
+    <div ng-app="tripApp" ng-controller="tripController" class="form-horizontal">
+        <form class="col-md-4">
+        <input type="text" ng-model="farePreference" name="farePreference" placeholder="Fare Preference"class="form-control input-md col-md-4">
+        <br>
+        <input type="text" ng-model="fromAirport" name="Origin" placeholder="fromAirport"class="form-control input-md col-md-4"> <br>
+        <input type="date" ng-model="fromDate" name="fromDate" placeholder="From Date"class="form-control input-md col-md-4"> <br>
+        <input type="text" ng-model="passengers" name="passengers" placeholder="Passengers"class="form-control input-md col-md-4"> <br>
+        <input type="text" ng-model="toAirport" name="toAirport" placeholder="Destination"class="form-control input-md col-md-4"> <br>
+        <input type="date" ng-model="toDate" name="toDate" placeholder="toDate"class="form-control input-md col-md-4"> <br>
+        <input type="text" ng-model="travelType" name="travelType" placeholder="Travel Type"class="form-control input-md col-md-4"> <br>
+        <button ng-click="SendData()"class="form-control input-md col-md-4">Submit</button>
+        <br>
+        <button type="reset"class="form-control input-md col-md-4">New Search</button>
+        </form>
         <hr />
+        
+        
+        <div class="col-md-6"ng-hide="x1==null">
+            <h4> Result </h4>
 
-        {{tripResult}}
+	<!--{{ result }} </br> -->
+
+
+            <ul>
+                <!-- trips: {{ tripResult.trips.tripOption }} -->
+                <li ng-repeat="x1 in result.trips.tripOption">
+                    Trip: <br>
+                    Price: {{ x1.saleTotal }} <br>
+                    <!-- Slice: {{ x1.slice }}</br> -->
+
+                    <ul>
+                    <li ng-repeat="x2 in x1.slice">
+                        RoundTrip: <br>
+                        Duration (in minutes) : {{ x2.duration}} <br>
+                        Flight: {{ x2.segment[0].flight.carrier }}  {{ x2.segment[0].flight.number }} <br>
+                        Depature: {{ x2.segment[0].leg[0].departureTime }} <br>
+                        Arrival: {{ x2.segment[0].leg[0].arrivalTime }} <br>
+                    </li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
 
     </div>
 
 </div>
+    
+    
+</body>
+    
+</html>
