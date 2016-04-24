@@ -12,6 +12,8 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    MPG: { type: Number },
+    location: {type: String, required: true},
     hash: String,
     salt: String
 });
