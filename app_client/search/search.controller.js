@@ -11,7 +11,7 @@
 
         $scope.SendData = function() {
 
-       	var url = "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyC94iyxgTlqCnHrUGWOLrwso5VZYRPZniM";
+       	var url = "https://www.googleapis.com/qpxExpress/v1/trips/search?key=YOUR-KEY-HERE";
         var data = {
             farePrefrence: $scope.farePrefrence,
             fromAirport: $scope.fromAirport,
