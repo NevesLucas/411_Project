@@ -1,0 +1,1 @@
+!function(){function n(n,t){var e=this;e.isLoggedIn=t.isLoggedIn(),e.currentUser=t.currentUser()}angular.module("meanApp").controller("navigationCtrl",n),n.$inject=["$location","authentication"]}();

@@ -1,0 +1,1 @@
+!function(){function n(n,o){var e=this;e.user={},o.getProfile().success(function(n){e.user=n}).error(function(n){console.log(n)})}angular.module("meanApp").controller("profileCtrl",n),n.$inject=["$location","meanData"]}();

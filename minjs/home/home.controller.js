@@ -1,0 +1,1 @@
+!function(){function n(){console.log("Home controller is running")}angular.module("meanApp").controller("homeCtrl",n)}();

@@ -1,0 +1,1 @@
+!function(){function t(t,e){t.result=e.get()}angular.module("meanApp").controller("resultCtrl",t),t.$inject=["$scope","flightData"]}();

@@ -15,11 +15,12 @@
 
     <script>
       $(function() {
-        $( "#datepicker" ).datepicker({ dateFormat: "yyyy-mm-dd"});
+        $( "#datepicker" ).datepicker();
       });
     </script>
     
     
+
     
 </head>
 
@@ -53,25 +54,26 @@
 
 <div class="container">
 
-    <div ng-app="meanApp" ng-controller="searchCtrl" class="form-horizontal">
-        <form class="col-md-4">
-        <input type="text" ng-model="farePreference" name="farePreference" placeholder="Fare Preference"class="form-control input-md col-md-4">
-        <br>
-        <input type="text" ng-model="fromAirport" name="Origin" placeholder="fromAirport"class="form-control input-md col-md-4"> <br>
-        <input id="datepicker" type="date" ng-model="fromDate" name="fromDate" placeholder="From Date"class="form-control input-md col-md-4"> <br>
-        <input type="text" ng-model="passengers" name="passengers" placeholder="Passengers"class="form-control input-md col-md-4"> <br>
-        <input type="text" ng-model="toAirport" name="toAirport" placeholder="Destination"class="form-control input-md col-md-4"> <br>
-        <input id="datepicker" type="date" ng-model="toDate" name="toDate" placeholder="toDate"class="form-control input-md col-md-4"> <br>
-        <input type="text" ng-model="travelType" name="travelType" placeholder="Travel Type"class="form-control input-md col-md-4"> <br>
-        <button ng-click="SendData()"class="form-control input-md col-md-4">Submit</button>
-        <br>
-        <button type="reset"class="form-control input-md col-md-4">New Search</button>
-        </form>
-        <hr />
+<h4> Result </h4>
 
-        <script> var newDate = fromDate.substring(0, 10) </script>
+    <ul>
+        
+        <li ng-repeat="x1 in result.trips.tripOption">
+            Trip: </br>
+            Price: {{ x1.saleTotal }} </br>
 
-    </div>
+            <ul>
+            <li ng-repeat="x2 in x1.slice">
+                RoundTrip: </br>
+                Duration (in minutes) : {{ x2.duration}} </br>
+                Flight: {{ x2.segment[0].flight.carrier }}  {{ x2.segment[0].flight.number }} </br>
+                Depature: {{ x2.segment[0].leg[0].departureTime }} </br>
+                Arrival: {{ x2.segment[0].leg[0].arrivalTime }} </br>
+            </li>
+            </ul>
+
+        </li>
+    </ul>
 
 </div>
     

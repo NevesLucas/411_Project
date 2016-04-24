@@ -1,0 +1,1 @@
+!function(){function i(){this.savedTrip={},this.set=function(i){this.savedTrip=i},this.get=function(){return this.savedTrip}}angular.module("meanApp").service("flightData",i)}();
