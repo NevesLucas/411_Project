@@ -1,5 +1,5 @@
 var path = require('path');
-var Akey = 'YOUR-KEY-HERE'
+var Akey = 'AIzaSyC94iyxgTlqCnHrUGWOLrwso5VZYRPZniM'
 module.exports = {
 	rootpath: path.normalize(__dirname+'/../..'),
 	server : {

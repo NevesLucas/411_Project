@@ -11,8 +11,8 @@
 
         $scope.SendData = function() {
 
-            // hit backend with request
-            var url = "localhost:3000/api/itineraries";
+        // hit backend with request
+        var url = "localhost:3000/api/itineraries";
 
         var data = {
             farePrefrence: $scope.farePrefrence,
@@ -32,28 +32,11 @@
         .success(function (data, status, headers, config) {
             $location.path('/result');
             flightData.set(data);
-            $scope.tripResult = flightData.get();
-
-        })
-        .error(function (data, status, headers, config) {
-            $scope.errorMessage = "Something went wrong";
-            $scope.errorDetail = data + status + headers + config;
-            console.log(headers);
-        });
-
-        };
-
-    }
-
-
+            flightData.setOri($scope.fromAirport);
+            flightData.setDest($scope.fromAirport);
+            flightData.setType($scope.travelType);
+            
 })();
-
-/*_dateFormat = function(oldDate) {
-	// http://stackoverflow.com/questions/17445585/javascript-convert-string-into-date-with-format-dd-mmm-yyyy-i-e-01-jun-2012
-	String(oldDate).substring(0, 10);
-	var newDate = sptdate[2] + "-" + sptdate[0] + "-" + sptdate[1];
-	return newDate;
-}*/
 
 
 _buildRequestData = function(request) {
@@ -69,7 +52,7 @@ _buildRequestData = function(request) {
     var slices = [];
     slices.push(depatureSlice);
 
-    if(request.travelType =='Round-trip') {
+    if(request.travelType == 'Round-trip') {
         var returnSlice = {
             origin: request.toAirport,
             destination: request.fromAirport,

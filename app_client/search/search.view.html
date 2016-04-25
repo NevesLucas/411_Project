@@ -52,21 +52,55 @@
 
     <div ng-app="meanApp" ng-controller="searchCtrl" class="form-horizontal">
         <form class="col-md-4">
-        <input type="text" ng-model="farePreference" name="farePreference" placeholder="Fare Preference"class="form-control input-md col-md-4">
-        <br>
+        <select name="travelType" ng-model="travelType" class="form-control input-md col-md-4">
+            <option value="" disabled selected>&nbspTravel Type</option>
+            <option value="One-way">One-way</option>
+            <option value="Round-trip">Round-trip</option>
+        </select> </br>
+
+
+        <select name="farePreference" ng-model="farePreference" class="form-control input-md col-md-4">
+            <option value="" disabled selected>&nbspFare Preference</option>
+            <option value="Economy">Economy</option>
+            <option value="Business">Business</option>
+            <option value="First">First</option>
+        </select> </br>
+
+
         <input type="text" ng-model="fromAirport" name="Origin" placeholder="fromAirport"class="form-control input-md col-md-4"> <br>
         <input id="datepicker" type="date" ng-model="fromDate" name="fromDate" placeholder="From Date"class="form-control input-md col-md-4"> <br>
-        <input type="text" ng-model="passengers" name="passengers" placeholder="Passengers"class="form-control input-md col-md-4"> <br>
+
+        <select name="passengers" ng-model="passengers" class="form-control input-md col-md-4">
+            <option value="" disabled selected>&nbspNumber of Passengers</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select> </br>
+
+        <div ng-show="travelType=='Round-trip'">
         <input type="text" ng-model="toAirport" name="toAirport" placeholder="Destination"class="form-control input-md col-md-4"> <br>
         <input id="datepicker" type="date" ng-model="toDate" name="toDate" placeholder="toDate"class="form-control input-md col-md-4"> <br>
-        <input type="text" ng-model="travelType" name="travelType" placeholder="Travel Type"class="form-control input-md col-md-4"> <br>
+        </div>
+
         <button ng-click="SendData()"class="form-control input-md col-md-4">Submit</button>
         <br>
         <button type="reset"class="form-control input-md col-md-4">New Search</button>
         </form>
         <hr />
 
-        <script> var newDate = fromDate.substring(0, 10) </script>
+        <div ng-show="errorMessage">
+            <h4 style="color:red">{{ errorMessage }}</h4>
+            <div ng-show="errorCode">
+                {{ errorCode }} </br>
+                {{ errorStatus }}
+            </div>
+            <div ng-hide="errorCode">
+                Check if your entries are correct. </br> </br>
+            </div>
+        </div>
 
     </div>
 
