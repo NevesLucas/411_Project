@@ -79,9 +79,10 @@
             <option value="5">5</option>
             <option value="6">6</option>
         </select> </br>
-
-        <div ng-show="travelType=='Round-trip'">
+        
         <input type="text" ng-model="toAirport" name="toAirport" placeholder="Destination"class="form-control input-md col-md-4"> <br>
+        
+        <div ng-show="travelType=='Round-trip'">
         <input id="datepicker" type="date" ng-model="toDate" name="toDate" placeholder="toDate"class="form-control input-md col-md-4"> <br>
         </div>
 
