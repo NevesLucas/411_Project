@@ -50,21 +50,21 @@
         </div>
     </nav>
     
-<div class="panel panel-default">
-<table class="table table-condensed table-hover table-responsive"style="width:50%"  align="center" cellpadding="50" >
+<div class="panel panel-default" width="50%" align="center">
+<table class="table table-condensed table-bordered table-hover table-responsive"style="width:50%"  align="center" cellpadding="50" >
 
 <tr><td><h2>Trip:</h2> </td></tr>
 
-    <tr>
+    
         
         <tr ng-repeat="x1 in result.trips.tripOption">
             
-            <tr><td>Price: <td>{{ x1.saleTotal }}</td></td> </tr>
+            <tr><td>Price: <td>{{ x1.saleTotal }}</td> </tr>
             
     
 
             
-            <li ng-repeat="x2 in x1.slice">
+            <br ng-repeat="x2 in x1.slice">
                 
                 <td>Duration (in minutes) : <td>{{ x2.duration}} </td></td>
                 <tr>
@@ -76,7 +76,7 @@
                 <tr><td>
                 Departure: <td>{{ x2.segment[0].leg[0].departureTime }}</td>
                 </td>
-</tr>
+                </tr>
                 <tr>
                 <td>
                 Arrival: <td>{{ x2.segment[0].leg[0].arrivalTime }}</td></td></tr>
@@ -84,7 +84,7 @@
             
 
         </tr>
-    </tr>
+    
 
 
 
