@@ -1,1 +1,1 @@
-!function(){function t(t,e){t.result=e.get()}angular.module("meanApp").controller("resultCtrl",t),t.$inject=["$scope","flightData"]}();
+!function(){function t(t,e){t.result=e.get(),t.destination=e.getDest(),t.origins=e.getOri(),t.travelType=e.getType()}angular.module("meanApp").controller("resultCtrl",t),t.$inject=["$scope","flightData"]}();

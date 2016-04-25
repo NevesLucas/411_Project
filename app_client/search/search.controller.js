@@ -11,9 +11,7 @@
 
         $scope.SendData = function() {
 
-        // hit backend with request
         var url = "localhost:3000/api/itineraries";
-
         var data = {
             farePrefrence: $scope.farePrefrence,
             fromAirport: $scope.fromAirport,
@@ -23,7 +21,6 @@
             toDate: $filter('date')($scope.toDate, 'yyyy-MM-dd'),
             travelType: $scope.travelType
         };
-
 
         var requestData = _buildRequestData(data);
         var config = {headers: {'content-type': 'application/json'}};
@@ -35,8 +32,21 @@
             flightData.setOri($scope.fromAirport);
             flightData.setDest($scope.fromAirport);
             flightData.setType($scope.travelType);
-            
+
+        })
+        .error(function (data, status, headers, config) {
+            $scope.errorMessage = "Something went wrong";
+            $scope.errorCode = data;
+            $scope.errorStatus = status;
+        });
+
+        };
+
+    }
+
+
 })();
+
 
 
 _buildRequestData = function(request) {
