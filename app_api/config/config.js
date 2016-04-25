@@ -1,5 +1,5 @@
 var path = require('path');
-var Akey = 'YOUR_API_KEY_HERE'
+var Akey = 'YOUR-KEY-HERE'
 module.exports = {
 	rootpath: path.normalize(__dirname+'/../..'),
 	server : {

@@ -1,0 +1,1 @@
+!function(){function n(n,t){var i=this;i.credentials={email:"",password:""},i.onSubmit=function(){t.login(i.credentials).error(function(n){alert(n)}).then(function(){n.path("profile")})}}angular.module("meanApp").controller("loginCtrl",n),n.$inject=["$location","authentication"]}();

@@ -10,9 +10,8 @@ var request = require('request');
 /** get all Itineraries from QPX Express API for the search request */
 exports.getItineraries = function(req, rep) {
     console.log(req.body);
-    var requestData = _buildRequestData(req);
-    console.log("Query Data: "+JSON.stringify(requestData));
 
+    // for offline testing uncomment
     //  rep(tripData);
 
     var url = 'https://www.googleapis.com/qpxExpress/v1/trips/search?key='+config.qpx.key;

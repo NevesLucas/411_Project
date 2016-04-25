@@ -1,0 +1,1 @@
+!function(){function n(n,t){var e=this;e.credentials={name:"",email:"",password:""},e.onSubmit=function(){console.log("Submitting registration"),t.register(e.credentials).error(function(n){alert(n)}).then(function(){n.path("profile")})}}angular.module("meanApp").controller("registerCtrl",n),n.$inject=["$location","authentication"]}();

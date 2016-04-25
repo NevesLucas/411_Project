@@ -11,7 +11,10 @@
     vm.credentials = {
       name : "",
       email : "",
-      password : ""
+      password : "",
+      location : "",
+      mpg : "",
+
     };
 
     vm.onSubmit = function () {

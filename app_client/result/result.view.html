@@ -1,0 +1,60 @@
+﻿<html>
+    
+<head>
+    
+    
+    <meta charset="utf-8">
+    <title>Travel Comparison Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="../../bootstrap.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="//code.jquery.com/jquery-1.10.2.js">
+    
+    <script src="dist/jquery/jquery-ui.js"></script>
+
+    <script>
+      $(function() {
+        $( "#datepicker" ).datepicker();
+      });
+    </script>
+    
+    
+
+    
+</head>
+
+<body>
+ <navigation></navigation>
+    
+
+
+<div class="container">
+
+<h4> Result </h4>
+
+    <ul>
+        
+        <li ng-repeat="x1 in result.trips.tripOption">
+            Trip: </br>
+            Price: {{ x1.saleTotal }} </br>
+
+            <ul>
+            <li ng-repeat="x2 in x1.slice">
+                RoundTrip: </br>
+                Duration (in minutes) : {{ x2.duration}} </br>
+                Flight: {{ x2.segment[0].flight.carrier }}  {{ x2.segment[0].flight.number }} </br>
+                Depature: {{ x2.segment[0].leg[0].departureTime }} </br>
+                Arrival: {{ x2.segment[0].leg[0].arrivalTime }} </br>
+            </li>
+            </ul>
+
+        </li>
+    </ul>
+
+</div>
+    
+    
+</body>
+    
+</html>
