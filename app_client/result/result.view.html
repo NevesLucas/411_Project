@@ -59,27 +59,28 @@
         
         <tr ng-repeat="x1 in result.trips.tripOption">
             
-            <tr><td>Price: <td>{{ x1.saleTotal }}</td> </tr>
+            <tr><td>Price <td>{{ x1.saleTotal }}</td> </tr>
             
     
 
             
             <br ng-repeat="x2 in x1.slice">
-                
-                <td>Duration (in minutes) : <td>{{ x2.duration}} </td></td>
+                <tr>
+                <td>Duration <td>{{ x2.duration}} minutes </td>
                 <tr>
                   
-                <td>Flight: </td>
+                <td>Flight </td>
                     <td>{{ x2.segment[0].flight.carrier }}:
              {{ x2.segment[0].flight.number }}</td> </tr>
     
-                <tr><td>
-                Departure: <td>{{ x2.segment[0].leg[0].departureTime }}</td>
-                </td>
-                </tr>
                 <tr>
-                <td>
-                Arrival: <td>{{ x2.segment[0].leg[0].arrivalTime }}</td></td></tr>
+                    <td>Departure </td>
+                    <td>{{x2.segment[0].leg[0].departureTime }}</td>
+                
+                <tr>
+                    <td>
+                    Arrival </td>
+                    <td>{{x2.segment[0].leg[0].arrivalTime }}</td></tr>
             
             
 
