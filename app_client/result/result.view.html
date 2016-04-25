@@ -1,4 +1,4 @@
-﻿<html>
+<html>
     
 <head>
     
@@ -49,78 +49,48 @@
             </div>
         </div>
     </nav>
+
+<div class="panel panel-default" width="50%" align="center">
+<table class="table table-condensed table-bordered table-hover table-responsive"style="width:50%"  align="center" cellpadding="50" >
+
+<tr><td></td><td><h2>Trip {{ ($index + 1) }}:</h2></td> </tr>
+
     
-<div class="panel panel-default">
-<table class="table table-condensed table-hover table-responsive"style="width:50%"  align="center" cellpadding="50" >
-
-<!-- <tr ng-repeat="x1 in result.trips.tripOption">
-    <h2>Trip {{ ($index + 1) }} : </h2>
-    Price:{{ x1.saleTotal }} </td></td>
-    <tr ng-repeat="x2 in x1.slice">
-                Duration (in minutes) : {{ x2.duration}} </br>
-                Flight: {{ x2.segment[0].flight.carrier }}  {{ x2.segment[0].flight.number }} </br>
-                Depature: {{ x2.segment[0].leg[0].departureTime }} </br>
-                Arrival: {{ x2.segment[0].leg[0].arrivalTime }} </br>
-    </tr>
-
-
-</tr> -->
-
-    <ul>
         
-        <li ng-repeat="x1 in result.trips.tripOption">
-            <h2>Trip {{ ($index + 1) }} : </h2>
-            Price: {{ x1.saleTotal }} </br>
+        <tr ng-repeat="x1 in result.trips.tripOption">
+            
+            <tr><td>Price <td>{{ x1.saleTotal }}</td> </tr>
+            
+    
 
-            <ul>
-            <li ng-repeat="x2 in x1.slice">
-                Duration (in minutes) : {{ x2.duration}} </br>
-                Flight: {{ x2.segment[0].flight.carrier }}  {{ x2.segment[0].flight.number }} </br>
-                Depature: {{ x2.segment[0].leg[0].departureTime }} </br>
-                Arrival: {{ x2.segment[0].leg[0].arrivalTime }} </br>
-            </li>
-            </ul>
+            
+            <br ng-repeat="x2 in x1.slice">
+                <tr>
+                <td>Duration <td>{{ x2.duration}} minutes </td>
+                <tr>
+                  
+                <td>Flight </td>
+                    <td>{{ x2.segment[0].flight.carrier }}:
+             {{ x2.segment[0].flight.number }}</td> </tr>
+    
+                <tr>
+                    <td>Departure </td>
+                    <td>{{x2.segment[0].leg[0].departureTime }}</td>
+                
+                <tr>
+                    <td>
+                    Arrival </td>
+                    <td>{{x2.segment[0].leg[0].arrivalTime }}</td></tr>
+            
+            
 
-        </li>
-    </ul>
+        
+    
 
 
 
 </table>
 
-
-
-
-<!-- <div ng-repeat="x1 in result.trips.tripOption">
-
-<tr><td><h2>Trip:</h2> </td></tr>
-
-    <tr>
-            <tr><td>Price: <td>{{ x1.saleTotal }}</td></td> </tr>
-            
-            <li ng-repeat="x2 in x1.slice">
-                
-                <td>Duration (in minutes) : <td>{{ x2.duration}} </td></td>
-                <tr>
-                  
-                <td>Flight: </td>
-                <td>{{ x2.segment[0].flight.carrier }} {{ x2.segment[0].flight.number }}</td> </tr>
-    
-                <tr><td>Departure: <td>{{ x2.segment[0].leg[0].departureTime }}</td></td>
-
-                </tr>
-                <tr>
-                <td>
-                Arrival: <td>{{ x2.segment[0].leg[0].arrivalTime }}</td></td></tr>
-            
-
-    </tr>
-
-</div>
-
-
-
-</table> -->
 </div> 
 </body>
     
