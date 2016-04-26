@@ -20,6 +20,8 @@
     </script>
     
     
+    
+    
 
     
 </head>
@@ -50,7 +52,7 @@
         </div>
     </nav>
     
-<div class="panel panel-default">
+
 <table class="table table-condensed table-hover table-responsive"style="width:50%"  align="center" cellpadding="50" >
 
 <!-- <tr ng-repeat="x1 in result.trips.tripOption">
@@ -65,12 +67,65 @@
 
 
 </tr> -->
-<div style="width:500px;overflow:hidden;height:500px;max-width:100%;" align="center"><div id="embedded-map-display" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/directions?origin=airport+bos&destination=airport+dca&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe></div><a class="code-for-google-map" rel="nofollow" href="https://www.dog-checks.com" id="make-map-information">dog-checks.com</a><style>#embedded-map-display .text-marker{max-width:none!important;background:none!important;}img{max-width:none}</style></div><script src="https://www.dog-checks.com/google-maps-authorization.js?id=7de72a1e-78fb-66d4-4ba8-a46376704fb2&c=code-for-google-map&u=1461623739" defer="defer" async="async"></script>
     
+
+
+
+<div class="panel panel-default col-sm-4">
+    <div class="panel-header">
+    
+    <h2>DRIVING</h2>
+    <h3>Driving cost:</h3>
+    </div>
+    
+    <div class="panel-body" style="width:500px;overflow:hidden;height:60%;max-width:100%;" ><div id="embedded-map-display" style="height:100%; width:100%;max-width:100%;">
+        <div >
+    
+    
+            
+    
+            
+            
+        
+        
+        <script type="text/javascript">
+            var origin = "bos"
+            var dest = "mexico city"
+
+            document.write('<iframe width="100%" height="90%" frameborder="0" src="https://www.google.com/maps/embed/v1/directions?origin=airport+'+origin+'&destination=airport+'+dest+'&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU&mode=driving"></iframe>');
+        </script>
+            <br>
+        <script type="text/javascript">
+            document.write('<button class="btn btn-primary" target="_blank" href="https://www.google.com/maps/embed/v1/directions?origin=airport+'+origin+'&destination=airport+'+dest+'&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU">Open Map</button>');
+
+
+        </script>
+            
+            
+            
+                
+                    
+                    
+        
+            
+            
+        
+        
+        </div>
+        </div>
+        
+        <style>#embedded-map-display .text-marker{max-width:none!important;background:none!important;}img{max-width:none}</style>
+    </div>
+ </div>
+<div class="col-sm-7 panel panel-default">
+    <div class="panel-header"><h2>FLYING</h2><h3>Lowest flying cost:</h3></div>
+    <div class="panel-body">
+        
+        
     <ul>
         
         <li ng-repeat="x1 in result.trips.tripOption">
-            <h2>Trip {{ ($index + 1) }} : </h2>
+            <h4>Trip {{ ($index + 1) }} : </h2>
             Price: {{ x1.saleTotal }} </br>
 
             <ul>
@@ -84,13 +139,8 @@
 
         </li>
     </ul>
-</td>
-
-<td></td>
-
-</td>
-
-</table>
+</div>
+</div>
 
 
 
@@ -125,7 +175,7 @@
 
 
 </table> -->
-</div> 
+
 </body>
     
 </html>
