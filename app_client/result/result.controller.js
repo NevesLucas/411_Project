@@ -23,7 +23,7 @@
       console.log("price search not successful")
     });
 
-    console.log('distance search is running');
+    
     var directionsService = new google.maps.DirectionsService();
     var request = {
       origin: flightData.getOri() + "airport",
@@ -32,10 +32,27 @@
     };
 
     directionsService.route(request, function(response, status) {
+        console.log('directionsService is working');
         //$scope.resp = status + " " + request.origin + " " + request.destination;
         if (status == "OK") {
-          $scope.dist = response.routes[0].legs[0].distance.value / 1609.34;
+          console.log('worked?');
+          var dur = response.routes[0].legs[0].duration.text;
+          var dis = response.routes[0].legs[0].distance.value / 1609.34;
+          //$scope.duration = response.routes[0].legs[0].duration.text;
+          //$scope.dist = response.routes[0].legs[0].distance.value / 1609.34;
+          $scope.dist = dis;
+          $scope.duration = dur;
+          console.log($scope.dist);
+          console.log('wtf');         
+          console.log($scope.duration);
+          console.log('are you kidding me?');
+        }
+        else {
+          console.log('not working?');
+          $scope.dist = 0;
+          $scope.duration = 0;
         };
+        $scope.$apply();
     });
 
     console.log('whats up');

@@ -45,17 +45,20 @@
     <h2>DRIVING</h2>
 
     <div ng-show="travelType=='Round-trip'">
-    <h3>Driving Cost: USD{{2 * dist / milesPerGallon * priceGas | number:2}}</h3>
+    <h3>Driving Cost: USD{{ 2 * dist / milesPerGallon * priceGas | number:2 }}</h3>
     </div>
 
     <div ng-hide="travelType=='Round-trip'">
-    <h3>Driving Cost: USD{{dist / milesPerGallon * priceGas | number:2}}</h3>
+    <h3>Driving Cost: USD{{ dist / milesPerGallon * priceGas | number:2 }}</h3>
     </div>
     <!--Enter your miles per gallon: <input type="text" ng-model="milesPerGallonEntry" name="milesPerGallonEntry" placeholder="23.6 (Default)" class="form-control input-md col-md-4"> <br> -->
     <h4>MPGe: 23.6 miles per gallon </h4>
     <h4>Gas Price: {{priceGas}} dollars per gallon</h4>
     <h4>Distance: <span id='number-default'>{{dist | number:2}}</span> miles</h4>
-    <h4>{{resp}}</h4>
+    <h4>Duration: {{duration}} </h4>
+    <!--{{dist}} </br>
+    {{duration}}-->
+
 
     <!--
     <h4 id="Dprice">test</h4>
@@ -130,8 +133,7 @@
 <div class="col-sm-6 panel panel-default">
     <div class="panel-header"><h2>FLYING</h2><h3>Lowest flying cost: {{result.trips.tripOption[0].saleTotal}}</h3></div>
     <div class="panel-body">
-        
-        
+
     <ul>
         
         <li ng-repeat="x1 in result.trips.tripOption">
