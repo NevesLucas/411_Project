@@ -11,7 +11,7 @@
 
         $scope.SendData = function() {
 
-        var url = "localhost:3000/api/itineraries";
+        var url = "https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyCZUpSbCymTVkTvOzk8L8AMy9gV3ovMKGI";
         var data = {
             farePrefrence: $scope.farePrefrence,
             fromAirport: $scope.fromAirport,
@@ -30,7 +30,7 @@
             $location.path('/result');
             flightData.set(data);
             flightData.setOri($scope.fromAirport);
-            flightData.setDest($scope.fromAirport);
+            flightData.setDest($scope.toAirport);
             flightData.setType($scope.travelType);
 
         })
