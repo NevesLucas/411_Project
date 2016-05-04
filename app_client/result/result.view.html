@@ -55,65 +55,14 @@
     <h4>MPGe: 23.6 miles per gallon </h4>
     <h4>Gas Price: {{priceGas}} dollars per gallon</h4>
     <h4>Distance: <span id='number-default'>{{dist | number:2}}</span> miles</h4>
-    <h4>Duration: {{duration}} </h4>
-    <!--{{dist}} </br>
-    {{duration}}-->
-
-
-    <!--
-    <h4 id="Dprice">test</h4>
-        <script type="text/javascript">
-
-            var request = new XMLHttpRequest();
-            request.open("GET", "http://www.fueleconomy.gov/ws/rest/fuelprices", false);
-            request.send();
-            var xml = request.responseXML;
-            var table = xml.getElementsByTagName("fuelPrices");
-            var gas_price = table.getElementsByTagName("regular");
-            document.getElementById("Dprice").innerHTML = 'Average gas price: '+gas_price;
-        </script>    -->
-
-        <!--
-        <h4 id="dist">Distance: </h4>
-            <script>
-		var directionsService = new google.maps.DirectionsService();
-		function calcRoute() {
-		    var $element = $('origins');
-		    var start = angular.element($element).scope();
-		    var $endel = $('destination');
-		    var end = angular.element($endel).scope();
-			var request = {
-				origin:start,
-				destination:end,
-				travelMode: google.maps.DirectionsTravelMode.DRIVING
-			};
-			directionsService.route(request, function(response, status) {
-				if (status == google.maps.DirectionsStatus.OK) {
-					document.getElementById("dist").innerHTML = "distance in miles" + (response.routes[0].legs[0].distance.value / 1609.34);
-				}
-			});
-		}
-            </script>  -->      
+    <h4>Duration: {{duration}} </h4>  
 
         <div class="panel-body" style="width:500px;overflow:hidden;height:60%;max-width:100%;" >
         <div id="embedded-map-display" style="height:100%; width:100%;max-width:100%;">
         <div >
-    <!--
-        <script type="text/javascript">
-            var origin = "bos"
-            var dest = "dca"
-            document.write('<iframe width="100%" height="90%" frameborder="0" src="https://www.google.com/maps/embed/v1/directions?origin=airport+'+origin+'&destination=airport+'+dest+'&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU&mode=driving"></iframe>');
-                
-        </script>
-            
-        <script type="text/javascript">
-            document.write('<a class="btn btn-primary target="_blank" href="https://maps.google.com?saddr=airport+'+origin+'&daddr=airport+'+dest+'&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU">Open Map</a>');
-        </script>
-    -->
+
 
         <iframe width="100%" height="90%" frameborder="0" src="{{trustSrc(mapFrame)}}"></iframe>
-
-        <!--<a class="btn btn-primary" target="_blank" href="{{mapLink}}">Open Map</a>-->
 
         <style>#embedded-map-display .text-marker{max-width:none!important;background:none!important;}img{max-width:none}</style>
             
@@ -143,9 +92,19 @@
             <ul>
             <li ng-repeat="x2 in x1.slice">
                 Duration: {{ x2.duration}} minutes </br>
-                Flight: {{ x2.segment[0].flight.carrier }}{{ x2.segment[0].flight.number }} </br>
-                Departure: {{ x2.segment[0].leg[0].departureTime }} </br>
-                Arrival: {{ x2.segment[0].leg[0].arrivalTime }} </br>
+
+                <ul>
+                <li ng-repeat="x3 in x2.segment">
+                    Flight: {{ x3.flight.carrier }}{{ x3.flight.number }} </br>
+                    Origin: {{x3.leg[0].origin}} </br>
+                    Destination: {{x3.leg[0].destination}} </br>
+                    Departure: {{ x3.leg[0].departureTime }} </br>
+                    Arrival: {{ x3.leg[0].arrivalTime }} </br>
+
+                </li>
+                </ul>
+                
+                
             </li>
             </ul>
 
