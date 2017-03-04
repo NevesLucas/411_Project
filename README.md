@@ -6,5 +6,3 @@ the same language. Also the npm library is vast which we will find useful in the
 
 To use this application make sure you have mongodb, node, and npm already isntalled. Start up mongodb with mongod.exe. Then use npm install on the root directory to install all the dependencies listed in package.json.
 
-A lot of the code for this project was taken from Madhu Yamulapalli's Github page. You can find the repository at:
-https://github.com/madhuyamulapalli/hapi-mongodb-flight-services-api.git
